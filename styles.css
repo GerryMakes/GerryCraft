@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -206,4 +208,38 @@
 .main {
     background-color: #141414;
     color: #fff;
+}
+
+.Links_Body {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYHypBkiuxU5MiS_FamW14BiNhs6nhGdtHJmhJAXTAQ&s);
+    background-size: 750px, 1500px;
+    font-family: Poetsen;
+    color: #fff;
+    font-family: serif;
+}
+
+.Gaming_Body {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT5jI7Zs4aYl59kSZB09-gaBeYK5UXHGvCkw&s);
+    background-size: 750px, 1500px;
+    font-family: Poetsen;
+    color: #fff;
+    font-family: serif;
+}
+
+.index_Body {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYHypBkiuxU5MiS_FamW14BiNhs6nhGdtHJmhJAXTAQ&s);
+    background-size: 750px, 1500px;
+    font-family: Poetsen;
+    color: #fff;
+    font-family: serif;
+}
+
+.link {
+    color: #e8dc3e;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.rid-o-bullet-link {
+    list-style-type: none;
 }
