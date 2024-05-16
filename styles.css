@@ -212,7 +212,7 @@
 
 .Links_Body {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYHypBkiuxU5MiS_FamW14BiNhs6nhGdtHJmhJAXTAQ&s);
-    background-size: 750px, 1500px;
+    background-size: cover;
     font-family: Poetsen;
     color: #fff;
     font-family: serif;
@@ -220,7 +220,7 @@
 
 .Gaming_Body {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT5jI7Zs4aYl59kSZB09-gaBeYK5UXHGvCkw&s);
-    background-size: 750px, 1500px;
+    background-size: cover;
     font-family: Poetsen;
     color: #fff;
     font-family: serif;
@@ -228,8 +228,7 @@
 
 .index_Body {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYHypBkiuxU5MiS_FamW14BiNhs6nhGdtHJmhJAXTAQ&s);
-    background-size: 750px, 1500px;
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-size: cover;    
     font-family: Poetsen;
     color: #fff;
     font-family: serif;
@@ -255,3 +254,26 @@ button {
     display: inline-block;
     font-size: 16px;
   }
+
+.main__content {
+    text-align: center;
+    color: white;
+}
+
+section {
+    height: auto;
+    position: relative;
+}
+
+.scroll-btn {
+    position: absolute;
+    height: 5rem;
+    width: 10rem;
+    border: 0.5em solid #fff;
+    margin: auto;
+    border-radius: 3em;
+}
+
+scroll-btn:before {
+    
+}
