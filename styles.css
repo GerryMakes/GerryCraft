@@ -234,6 +234,14 @@
     font-family: serif;
 }
 
+.Buy_Body {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT5jI7Zs4aYl59kSZB09-gaBeYK5UXHGvCkw&s);
+    background-size: cover;    
+    font-family: Poetsen;
+    color: #fff;
+    font-family: serif;
+}
+
 .index_Body {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYHypBkiuxU5MiS_FamW14BiNhs6nhGdtHJmhJAXTAQ&s);
     background-size: cover;    
@@ -290,4 +298,8 @@ scroll-btn:before {
 
 .getstarted_btn {
     cursor: pointer;
+}
+
+.black {
+    color: #131313;
 }
