@@ -20,14 +20,23 @@
                     <a href="Geometrydash.html" class="navbar__links">Gaming</a>
                 </li>
                 <li class="navbar__item">
+                    <a href="game.html" class="navbar__links">Game</a>
+                </li>
+                <li class="navbar__item">
                     <a href="Links.html" class="navbar__links">Links</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/" class="button">Sign up</a>
+                    <a href="getstarted.html" class="button">Sign up</a>
                 </li>
             </ul>
         </div>
     </nav>
+    <section>
+        <div>
+            <a href="signup.php">Signup</a>
+            <a href="signin.php">Signin</a>
+        </div>
+    </section>
     <!--Hero section-->
     <section>
         <div class="main">
@@ -37,7 +46,8 @@
                     <h2>Gaming</h2>
                     <p>See what makes us different.</p>
                     <br>
-                    <button class="main__btn" class="scroll-btn"><a href="/" class="link">Get Started</a></button>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5899367060226875" crossorigin="anonymous"></script>
+                    <button class="main__btn" class="scroll-btn"><a href="getstarted.html" class="link">Get Started</a></button>
                 </div>
                 <div class="main__img__container">
                     <img src="videogame.svg" alt="" id="main__img">
@@ -46,6 +56,13 @@
         </div>
     </section>
     <section class="section3">
+        <form method="POST" action="signup.php">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="passcode" placeholder="Passcode" required>
+            <button type="submit">Sign Up</button>
+        </form>
         
     </section>
     <script scr="app.js"></script>
