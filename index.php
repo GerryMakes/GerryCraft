@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +35,12 @@
             </ul>
         </div>
     </nav>
+    <section>
+        <div>
+            <a href="signup.php">Signup</a>
+            <a href="signin.php">Signin</a>
+        </div>
+    </section>
     <!--Hero section-->
     <section>
         <div class="main">
@@ -43,25 +53,20 @@
                     <button class="main__btn" class="scroll-btn"><a href="getstarted.html" class="link">Get Started</a></button>
                 </div>
                 <div class="main__img__container">
-                    <img src="videogame.png" alt="" id="main__img">
+                    <img src="videogame.svg" alt="" id="main__img">
                 </div>
             </div>
         </div>
     </section>
     <section class="section3">
-        <form method="POST" action="signup.php" class="form">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="text" name="passcode" placeholder="Passcode" required>
+        <form method="POST" action="signup.php">
+            <input type="text" name="username" placeholder="Username" action="signup.php" required>
+            <input type="email" name="email" placeholder="Email" action="signup.php" required>
+            <input type="password" name="password" placeholder="Password" action="signup.php" required>
+            <input type="text" name="passcode" placeholder="Passcode" action="signup.php" required>
             <button type="submit">Sign Up</button>
         </form>
         
-    </section>
-    <section>
-        <div>
-            <a href="signinandup.php">signup</a>
-        </div>
     </section>
     <script scr="app.js"></script>
 </body>

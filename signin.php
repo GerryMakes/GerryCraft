@@ -1,28 +1,29 @@
 <?php
-require 'db.php';
+require 'db.php'; // Database connection file
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $identifier = $_POST['identifier']; // Can be username or email
-    $password = $_POST['password'];
-    $passcode = $_POST['passcode'];
+    $identifier = trim($_POST['identifier']); // Can be username or email
+    $password = trim($_POST['password']);
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE (username = ? OR email = ?) AND passcode = ?");
-    $stmt->execute([$identifier, $identifier, $passcode]);
+    // Validate input
+    if (empty($identifier) || empty($password)) {
+        echo "All fields are required.";
+        exit;
+    }
+
+    // Check the database for the user
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
+    $stmt->execute([$identifier, $identifier]);
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
+        // Set session variables
         $_SESSION['user_id'] = $user['id'];
-        echo "Sign-in successful!";
+        $_SESSION['username'] = $user['username'];
+        echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
     } else {
-        echo "Invalid username/email, passcode, or password.";
+        echo "Invalid username/email or password.";
     }
 }
 ?>
-
-<form method="POST" action="signin.php">
-    <input type="text" name="identifier" placeholder="Username or Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="text" name="passcode" placeholder="Passcode" required>
-    <button type="submit">Sign In</button>
-</form>
