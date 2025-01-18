@@ -31,28 +31,22 @@
             </ul>
         </div>
     </nav>
-    <!--Hero section-->
-    <section>
-        <div class="main">
-            <div class="main__container">
-                <div class="main__content">
-                    <h1>NEXT GENERATION</h1>
-                    <h2>Gaming</h2>
-                    <p>See what makes us different.</p>
-                    <br>
-                    <button class="main__btn" class="scroll-btn"><a href="getstarted.html" class="link">Get Started</a></button>
-                </div>
-                <div class="main__img__container">
-                    <img src="videogame.png" alt="" id="main__img">
-                </div>
-            </div>
+    <section class="signinandup">
+        <div class="signup">
+            <form method="POST" action="signup.php">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="submit_button">Sign Up</button>
+            </form>
+        </div>
+        <div class="signin">
+            <form method="POST" action="signin.php">
+                <input type="text" name="identifier" placeholder="Username or Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="submit_button">Sign In</button>
+            </form>
         </div>
     </section>
-    <section>
-        <div>
-            <button><a href="loginsignup.html" class="link">signup</a></button>
-        </div>
-    </section>
-    <script scr="app.js"></script>
 </body>
 </html>

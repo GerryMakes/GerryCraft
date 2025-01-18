@@ -21,7 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Set session variables
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-        echo "Login successful! Welcome, " . htmlspecialchars($user['username']) . ".";
+
+        // Redirect to index.php
+        header("Location: index.php");
+        exit;
     } else {
         echo "Invalid username/email or password.";
     }

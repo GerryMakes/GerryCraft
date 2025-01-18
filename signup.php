@@ -1,5 +1,6 @@
 <?php
 require 'db.php'; // Database connection file
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
@@ -19,7 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
         $stmt->execute([$username, $email, $hashed_password]);
-        echo "Registration successful! You can now sign in.";
+
+        // Log the user in
+        $_SESSION['user_id'] = $pdo->lastInsertId();
+        $_SESSION['username'] = $username;
+
+        // Redirect to index.php
+        header("Location: index.php");
+        exit;
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) { // Duplicate entry error
             echo "Username or email already exists.";

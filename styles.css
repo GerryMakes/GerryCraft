@@ -304,7 +304,7 @@ scroll-btn:before {
     color: #131313;
 }
 
-.container{
+.container {
     background:#fff;
     width:450px;
     padding:1.5rem;
@@ -312,69 +312,24 @@ scroll-btn:before {
     border-radius:10px;
     box-shadow:0 20px 35px rgba(0,0,1,0.9);
 }
-form{
-    margin:0 2rem;
-    background-color: white;
-    text-align: center;
-    padding: 2rem;
-}
-.form-title{
+.form-title {
     font-size:1.5rem;
     font-weight:bold;
     text-align:center;
     padding:1.3rem;
     margin-bottom:0.4rem;
 }
-input{
-    color:inherit;
-    width:100%;
-    background-color:transparent;
-    border:none;
-    border-bottom:1px solid #757575;
-    padding-left:1.5rem;
-    font-size:15px;
-}
-.input-group{
-    padding:1% 0;
-    position:relative;
-
-}
-.input-group i{
-    position:absolute;
-    color:black;
-}
-input:focus{
-    background-color: transparent;
-    outline:transparent;
-    border-bottom:2px solid hsl(327,90%,28%);
-}
-input::placeholder{
-    color:transparent;
-}
-label{
-    color:#757575;
-    position:relative;
-    left:1.2em;
-    top:-1.3em;
-    cursor:auto;
-    transition:0.3s ease all;
-}
-input:focus~label,input:not(:placeholder-shown)~label{
-    top:-3em;
-    color:hsl(327,90%,28%);
-    font-size:15px;
-}
-.recover{
+.recover {
     text-align:right;
     font-size:1rem;
     margin-bottom:1rem;
 
 }
-.recover a{
+.recover a {
     text-decoration:none;
     color:rgb(125,125,235);
 }
-.recover a:hover{
+.recover a:hover {
     color:blue;
     text-decoration:underline;
 }
@@ -398,10 +353,10 @@ input:focus~label,input:not(:placeholder-shown)~label{
     margin-top:0.5rem;
     text-align:center;
 }
-.icons{
+.icons {
     text-align:center;
 }
-.icons i{
+.icons i {
     color:rgb(125,125,235);
     padding:0.8rem 1.5rem;
     border-radius:10px;
@@ -411,18 +366,37 @@ input:focus~label,input:not(:placeholder-shown)~label{
     margin:0 15px;
     transition:1s;
 }
-.icons i:hover{
+.icons i:hover {
     background:#07001f;
     font-size:1.6rem;
     border:2px solid rgb(125,125,235);
 }
-.submit_button{
+.submit_button {
     color: #4837ff;
     border: none;
     padding: 0.5cm;
     margin: 0 2rem;
 }
-.submit_button:hover{
+.submit_button:hover {
     cursor: pointer;
     color: greenyellow;
+}
+.signin {
+    background-color: #fff;
+    padding: 0 2rem;
+    margin-top: 0.5cm;
+    margin-bottom: 0.5cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+}
+.signup {
+    background-color: #fff;
+    padding: 0 2rem;
+    margin-top: 0.5cm;
+    margin-bottom: 0.5cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+}
+.signinandup {
+    background-color: greenyellow;
 }
