@@ -314,8 +314,9 @@ scroll-btn:before {
 }
 form{
     margin:0 2rem;
-    background-color: blue;
+    background-color: white;
     text-align: center;
+    padding: 2rem;
 }
 .form-title{
     font-size:1.5rem;
@@ -414,4 +415,14 @@ input:focus~label,input:not(:placeholder-shown)~label{
     background:#07001f;
     font-size:1.6rem;
     border:2px solid rgb(125,125,235);
+}
+.submit_button{
+    color: #4837ff;
+    border: none;
+    padding: 0.5cm;
+    margin: 0 2rem;
+}
+.submit_button:hover{
+    cursor: pointer;
+    color: greenyellow;
 }
