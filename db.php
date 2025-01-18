@@ -1,13 +1,11 @@
 <?php
-$host = 'localhost';
-$db = 'user_auth';
-$user = 'root'; // Replace with your MySQL username
-$pass = 'Database$99'; // Replace with your MySQL password
+$servername = "localhost";
+$username = "root";  // Your MySQL username
+$password = "Database$99";  // Your MySQL password
+$db = "user_auth";  // Your database name
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+$conn=new mysqli($servername,$username,$password,$db);
+if($conn->connect_error){
+    echo "Failed to connect DB".$conn->connect_error;
 }
 ?>

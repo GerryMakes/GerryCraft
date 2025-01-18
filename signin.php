@@ -1,24 +1,24 @@
 <?php
-require 'db.php'; // Database connection file
+require 'db.php';
 session_start();
+header("Location: index.php");
+exit;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $identifier = trim($_POST['identifier']); // Can be username or email
+    $identifier = trim($_POST['identifier']);
     $password = trim($_POST['password']);
 
-    // Validate input
     if (empty($identifier) || empty($password)) {
-        echo "All fields are required.";
+        // Redirect with error message
+        header("Location: index.html?error=All fields are required");
         exit;
     }
 
-    // Check the database for the user
     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
     $stmt->execute([$identifier, $identifier]);
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
-        // Set session variables
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
 
@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: index.php");
         exit;
     } else {
-        echo "Invalid username/email or password.";
+        header("Location: index.html?error=Invalid username/email or password");
+        exit;
     }
 }
 ?>
