@@ -1,33 +1,40 @@
 <?php
-require 'db.php';
 session_start();
-header("Location: index.php");
-exit;
+require 'db.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $identifier = trim($_POST['identifier']);
-    $password = trim($_POST['password']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $identifier = $_POST['identifier']; // Could be username or email
+    $password = $_POST['password'];
 
     if (empty($identifier) || empty($password)) {
-        // Redirect with error message
-        header("Location: index.html?error=All fields are required");
-        exit;
+        header("Location: loginsignup.php?error=all%20fields%20are%20required");
+        exit();
     }
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
-    $stmt->execute([$identifier, $identifier]);
-    $user = $stmt->fetch();
+    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ? OR email = ?");
+    $stmt->bind_param("ss", $identifier, $identifier);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
 
-        // Redirect to index.php
-        header("Location: index.php");
-        exit;
+        if (password_verify($password, $user['password'])) {
+            // Store user info in the session
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+
+            // Debugging output
+            error_log("User logged in: " . $_SESSION['username']);
+            header("Location: index.php");
+            exit();
+        } else {
+            header("Location: loginsignup.php?error=invalid%20credentials");
+            exit();
+        }
     } else {
-        header("Location: index.html?error=Invalid username/email or password");
-        exit;
+        header("Location: loginsignup.php?error=user%20not%20found");
+        exit();
     }
 }
 ?>

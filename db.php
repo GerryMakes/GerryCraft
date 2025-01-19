@@ -1,11 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root";  // Your MySQL username
-$password = "Database$99";  // Your MySQL password
-$db = "user_auth";  // Your database name
+$host = 'localhost';
+$username = 'root';
+$password = 'Database$99';
+$database = 'user_auth';
 
-$conn=new mysqli($servername,$username,$password,$db);
-if($conn->connect_error){
-    echo "Failed to connect DB".$conn->connect_error;
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die('Database connection failed: ' . $conn->connect_error);
 }
 ?>

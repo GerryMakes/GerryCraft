@@ -1,38 +1,29 @@
 <?php
 require 'db.php';
-session_start();
 
+echo'made it to line 4';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = trim($_POST['username']);
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    if (empty($username) || empty($email) || empty($password)) {
-        echo "All fields are required.";
-        exit;
+    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+    if (!$stmt) {
+        die('Prepare failed: ' . $conn->error);
     }
+    echo'made it to line 15';
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    
-    try {
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-        $stmt->execute([$username, $email, $hashed_password]);
+    $stmt->bind_param('sss', $username, $email, $password);
 
-        $_SESSION['user_id'] = $pdo->lastInsertId();
-        $_SESSION['username'] = $username;
-
-        // Debugging: Confirm redirect
-        echo "Redirecting to index.php...";
-        header("Location: index.php");
-        exit;
-    } catch (PDOException $e) {
-        if ($e->getCode() == 23000) {
-            echo "Username or email already exists.";
-        } else {
-            echo "Error: " . $e->getMessage();
-        }
-        exit;
+    if ($stmt->execute()) {
+        echo "Registration successful!";
+    } else {
+        die('Execute failed: ' . $stmt->error);
     }
+    echo'made it to line 24';
+
+    $stmt->close();
+    $conn->close();
 }
 ?>
