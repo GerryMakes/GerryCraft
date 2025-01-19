@@ -6,53 +6,47 @@
     <title>GerryCraft</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="index_Body">
+<body class="index-body">
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="navbar__container">
-            <a href="" id="navbar__logo">GerryCraft</a>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="Geometrydash.html" class="navbar__links">Gaming</a>
+        <div class="navbar-container">
+            <a href="#" id="navbar-logo">GerryCraft</a>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="Geometrydash.html" class="navbar-links">Gaming</a>
                 </li>
-                <li class="navbar__item">
-                    <a href="game.html" class="navbar__links">Game</a>
+                <li class="navbar-item">
+                    <a href="game.html" class="navbar-links">Game</a>
                 </li>
-                <li class="navbar__item">
-                    <a href="Links.html" class="navbar__links">Links</a>
+                <li class="navbar-item">
+                    <a href="Links.html" class="navbar-links">Links</a>
                 </li>
-                <li class="navbar__btn">
-                    <a href="getstarted.html" class="button">Sign up</a>
+                <li class="navbar-btn">
+                    <a href="loginsignup.php" class="button">Sign Up</a>
                 </li>
             </ul>
         </div>
-    </nav>
-    <!--Hero section-->
-    <section>
-        <div class="main">
-            <div class="main__container">
-                <div class="main__content">
-                    <h1>NEXT GENERATION</h1>
-                    <h2>Gaming</h2>
-                    <p>See what makes us different.</p>
-                    <br>
-                    <button class="main__btn" class="scroll-btn"><a href="getstarted.html" class="link">Get Started</a></button>
-                </div>
-                <div class="main__img__container">
-                    <img src="videogame.png" alt="" id="main__img">
-                </div>
+    </nav>    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Welcome to <span class="highlight">GerryCraft</span></h1>
+                <h2>Your Portal to Next-Generation Gaming</h2>
+                <p>Join us and experience the future of gaming. Explore, connect, and play like never before.</p>
+                <button class="hero-btn"><a href="loginsignup.php" class="hero-link">Get Started</a></button>
+            </div>
+            <div class="hero-image-container">
+                <img src="videogame.png" alt="Video Game" class="hero-image">
             </div>
         </div>
     </section>
-    <section>
-        <div>
-            <button><a href="loginsignup.html" class="link">signup</a></button>
-        </div>
-    </section>
-    <script scr="app.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 GerryCraft. All Rights Reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
