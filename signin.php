@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ? OR email = ?");
+    $stmt = $conn->prepare("SELECT id, username, password, role FROM users WHERE username = ? OR email = ?");
     $stmt->bind_param("ss", $identifier, $identifier);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -23,10 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Store user info in the session
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
 
-            // Debugging output
-            error_log("User logged in: " . $_SESSION['username']);
-            header("Location: index.php");
+            // Redirect based on role
+            if ($user['role'] === 'admin') {
+                header("Location: admin_panel.php");
+            } else {
+                header("Location: index.php");
+            }
             exit();
         } else {
             header("Location: loginsignup.php?error=invalid%20credentials");
