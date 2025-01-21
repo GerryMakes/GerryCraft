@@ -19,6 +19,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_user'])) {
 
 // Fetch all users
 $result = $conn->query("SELECT id, username, email, role FROM users");
+
+// Fetch total users
+$total_users = 0;
+$active_users = 0;
+$total_admins = 0;
+
+$query_total_users = "SELECT COUNT(*) AS total_users FROM users";
+$query_active_users = "SELECT COUNT(*) AS active_users FROM users WHERE last_login >= NOW() - INTERVAL 7 DAY";
+$query_total_admins = "SELECT COUNT(*) AS total_admins FROM users WHERE role = 'admin'";
+
+if ($res = $conn->query($query_total_users)) {
+    $total_users = $res->fetch_assoc()['total_users'];
+}
+
+if ($res = $conn->query($query_active_users)) {
+    $active_users = $res->fetch_assoc()['active_users'];
+}
+
+if ($res = $conn->query($query_total_admins)) {
+    $total_admins = $res->fetch_assoc()['total_admins'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +47,7 @@ $result = $conn->query("SELECT id, username, email, role FROM users");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.0">
 </head>
 <body>
     <nav class="navbar">
@@ -42,8 +63,14 @@ $result = $conn->query("SELECT id, username, email, role FROM users");
                 <li class="navbar-item">
                     <a href="Links.html" class="navbar-links">Links</a>
                 </li>
-                <li class="navbar-btn">
-                    <a href="logout.php" class="button">Logout</a>
+                <li class="navbar-item dropdown">
+                    <button class="dropdown-btn">
+                        <?php echo htmlspecialchars($_SESSION['username']); ?> ▼
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="logout.php">Sign Out</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -85,6 +112,25 @@ $result = $conn->query("SELECT id, username, email, role FROM users");
                     <?php endwhile; ?>
                 </tbody>
             </table>
+        </section>
+
+        <!-- Announcement Section -->
+        <section>
+            <div class="admin-actions">
+                <button onclick="window.location.href='add_announcement.php'" class="action-btn">Send Announcement</button>
+            </div>
+        </section>
+
+        <!-- Site Statistics Section -->
+        <section>
+            <div class="admin-stats">
+                <h2>Site Statistics</h2>
+                <ul>
+                    <li>Total Users: <?php echo $total_users; ?></li>
+                    <li>Active Users (Last 7 Days): <?php echo $active_users; ?></li>
+                    <li>Number of Admins: <?php echo $total_admins; ?></li>
+                </ul>
+            </div>
         </section>
 
         <!-- Site Analytics Section -->

@@ -3,22 +3,32 @@ session_start();
 require 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $identifier = $_POST['identifier']; // Could be username or email
-    $password = $_POST['password'];
+    $identifier = trim($_POST['identifier']); // Could be username or email
+    $password = trim($_POST['password']);
 
+    // Check if fields are empty
     if (empty($identifier) || empty($password)) {
-        header("Location: loginsignup.php?error=all%20fields%20are%20required");
+        header("Location: loginsignup.php?error=All%20fields%20are%20required");
         exit();
     }
 
+    // Prepare SQL query to fetch user
     $stmt = $conn->prepare("SELECT id, username, password, role FROM users WHERE username = ? OR email = ?");
+    if (!$stmt) {
+        error_log("Prepare failed: " . $conn->error);
+        header("Location: loginsignup.php?error=Server%20error");
+        exit();
+    }
+
     $stmt->bind_param("ss", $identifier, $identifier);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    // Check if user exists
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
+        // Verify password
         if (password_verify($password, $user['password'])) {
             // Store user info in the session
             $_SESSION['user_id'] = $user['id'];
@@ -33,12 +43,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             exit();
         } else {
-            header("Location: loginsignup.php?error=invalid%20credentials");
+            // Invalid password
+            header("Location: loginsignup.php?error=Invalid%20credentials");
             exit();
         }
     } else {
-        header("Location: loginsignup.php?error=user%20not%20found");
+        // User not found
+        header("Location: loginsignup.php?error=User%20not%20found");
         exit();
     }
 }
+
+// Redirect to login/signup page if accessed directly
+header("Location: loginsignup.php");
+exit();
 ?>
