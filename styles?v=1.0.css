@@ -538,7 +538,7 @@ scroll-btn:before {
     margin: 5px 0;
 }
 
-aside{
+aside {
     background-color: #22cfe6;
     display: inline-block;
     border: #000000;
@@ -562,3 +562,24 @@ aside p {
     border: #1e3c72;
     border-radius: 10px;
 }
+.hero {
+    background-image: url('videogame.png');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .hero aside {
+    float: right;
+    width: 30%; /* adjust the width to your liking */
+    margin: 20px; /* add some margin to create space between the aside and main content */
+  }
