@@ -580,6 +580,6 @@ aside p {
   }
   .hero aside {
     float: right;
-    width: 30%; /* adjust the width to your liking */
-    margin: 20px; /* add some margin to create space between the aside and main content */
+    width: 30%; 
+    margin: 20px; 
   }

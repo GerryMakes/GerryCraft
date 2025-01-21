@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GerryCraft</title>
     <link rel="stylesheet" href="styles.css?v=1.0">
+    <style>
+        .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Search bar container */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Search input */
+.search-input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Search button */
+.search-btn {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-btn:hover {
+    background-color: #0056b3;
+}
+    </style>
 </head>
 <body class="index-body">
     <!-- Navigation Bar -->
@@ -16,7 +56,7 @@
                     <a href="Geometrydash.html" class="navbar-links">Gaming</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="game.html" class="navbar-links">Game</a>
+                    <a href="downloads.php" class="navbar-links">downloads</a>
                 </li>
                 <li class="navbar-item">
                     <a href="Links.html" class="navbar-links">Links</a>
@@ -25,6 +65,10 @@
                     <a href="loginsignup.php" class="button">Sign Up</a>
                 </li>
             </ul>
+            <form class="navbar-search" action="search.php" method="get">
+                <input type="text" name="query" placeholder="Search..." class="search-input" required>
+                <button type="submit" class="search-btn">🔍</button>
+            </form>
         </div>
     </nav>    
     <!-- Hero Section -->
