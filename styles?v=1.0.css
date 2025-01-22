@@ -542,7 +542,7 @@ aside {
     background-color: #22cfe6;
     display: inline-block;
     border: #000000;
-    border-radius: 10px;
+    border-radius: 30px;
     justify-content: center;
     margin: 0px auto;
     text-align: center;
@@ -573,13 +573,13 @@ aside p {
     color: #fff;
   }
   
-  .hero h1 {
+.hero h1 {
     font-size: 48px;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  .hero aside {
+}
+.hero aside {
     float: right;
     width: 30%; 
     margin: 20px; 
-  }
+}

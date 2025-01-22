@@ -46,8 +46,11 @@
                     <label for="login-password">Password</label>
                     <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
                 </div>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAA57Wks4Xd_p4r2N"></div>
                 <button type="submit" class="form-btn">Login</button>
             </form>
+            <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 
             <!-- Signup Form -->
             <form action="signup.php" method="POST" class="form">
