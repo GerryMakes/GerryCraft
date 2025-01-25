@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'user') {
+// Check if the user is logged in and is a regular user
+if (!isset($_SESSION['id']) || $_SESSION['role'] !== 'user') {
     header("Location: loginsignup.php");
     exit();
 }
+
+// Fetch user details from the session
+$username = htmlspecialchars($_SESSION['username']);
 ?>
 
 <!DOCTYPE html>
@@ -30,13 +34,21 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'user') {
                     <a href="Links.html" class="navbar-links">Links</a>
                 </li>
                 <li class="navbar-btn">
-                    <a href="loginsignup.php" class="button">Sign Up</a>
+                    <a href="logout.php" class="button">Sign Out</a>
                 </li>
             </ul>
         </div>
     </nav>
+    <main>
     <h1>Welcome to the User Panel, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
     <p>Here you can view your profile and access user-specific content.</p>
+    <p>You are now logged in.</p>
+    <p>Explore the features of your account:</p>
+    <ul>
+        <li><a href="downloads.php">Download Files</a></li>
+        <li><a href="profile.php">Edit Profile</a></li>
+        <li><a href="settings.php">Account Settings</a></li>
+    </ul>
     <p>go check out my youtube channel <a href="https://www.youtube.com/@GerryCraftEZ">YoutubeChannel</a> please subscribe</p>
     <h3>latest video</h3>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/K-dDdVsMn7E?si=r-t_z24OM7dHxXiG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -54,7 +66,31 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'user') {
         <br><br>
         <button type="submit">Send Webhook</button>
     </form>
+    <br>
+    <div class="bio">
+        <div class="bio_inard">
+            <form class="bioform">
+                <label>Bio:</label>
+                <textarea id="bio" name="bio" rows="4" cols="50">Your bio goes here.</textarea>
+                <button type="submit">Save Bio</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div class="download_text">
+            <h2>Downloads</h2>
+            <p>Download the GerryCraft tools java app</p>
+        </div>
+        <div class="main_download">
+            <a href="" class="download_link">Download the gerrycraft tools app</a>
+        </div>
+    </div>
         
     <a href="logout.php">Logout</a>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 GerryCraft. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

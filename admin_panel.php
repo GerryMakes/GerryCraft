@@ -1,46 +1,58 @@
 <?php
+// Start session
 session_start();
 
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+// Check if the user is logged in and is an admin
+if (!isset($_SESSION['id']) || $_SESSION['role'] !== 'admin') {
+    // Redirect to login/signup page if not an admin
     header("Location: loginsignup.php");
     exit();
 }
 
+// Include the database connection
 require 'db.php';
 
 // Handle user deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_user'])) {
-    $userId = $_POST['delete_user'];
+    $userId = intval($_POST['delete_user']); // Sanitize input
     $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $stmt->close();
+    if ($stmt) {
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 // Fetch all users
 $result = $conn->query("SELECT id, username, email, role FROM users");
 
-// Fetch total users
+// Fetch user statistics
 $total_users = 0;
 $active_users = 0;
 $total_admins = 0;
 
+// Query for total users
 $query_total_users = "SELECT COUNT(*) AS total_users FROM users";
-$query_active_users = "SELECT COUNT(*) AS active_users FROM users WHERE last_login >= NOW() - INTERVAL 7 DAY";
-$query_total_admins = "SELECT COUNT(*) AS total_admins FROM users WHERE role = 'admin'";
-
 if ($res = $conn->query($query_total_users)) {
     $total_users = $res->fetch_assoc()['total_users'];
+    $res->free(); // Free result set
 }
 
+// Query for active users (logged in within the last 7 days)
+$query_active_users = "SELECT COUNT(*) AS active_users FROM users WHERE last_login >= NOW() - INTERVAL 7 DAY";
 if ($res = $conn->query($query_active_users)) {
     $active_users = $res->fetch_assoc()['active_users'];
+    $res->free(); // Free result set
 }
 
+// Query for total admins
+$query_total_admins = "SELECT COUNT(*) AS total_admins FROM users WHERE role = 'admin'";
 if ($res = $conn->query($query_total_admins)) {
     $total_admins = $res->fetch_assoc()['total_admins'];
+    $res->free(); // Free result set
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,9 +138,9 @@ if ($res = $conn->query($query_total_admins)) {
             <div class="admin-stats">
                 <h2>Site Statistics</h2>
                 <ul>
-                    <li>Total Users: <?php echo $total_users; ?></li>
-                    <li>Active Users (Last 7 Days): <?php echo $active_users; ?></li>
-                    <li>Number of Admins: <?php echo $total_admins; ?></li>
+                    <p>Total Users: <?php echo $total_users; ?></p>
+                    <p>Active Users (Last 7 Days): <?php echo $active_users; ?></p>
+                    <p>Total Admins: <?php echo $total_admins; ?></p>
                 </ul>
             </div>
         </section>
@@ -139,5 +151,8 @@ if ($res = $conn->query($query_total_admins)) {
             <p>More features coming soon...</p>
         </section>
     </main>
+    <footer class="footer">
+        <p>&copy; 2025 GerryCraft. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

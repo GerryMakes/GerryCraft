@@ -62,5 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <textarea id="announcement" name="announcement" rows="4" cols="50" required></textarea><br><br>
         <button type="submit">Send Announcement</button>
     </form>
+    <footer class="footer">
+        <p>&copy; 2025 GerryCraft. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

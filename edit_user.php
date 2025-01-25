@@ -97,5 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
             <button type="submit" name="update_user">Update User</button>
         </form>
     </main>
+    <footer class="footer">
+        <p>&copy; 2025 GerryCraft. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
