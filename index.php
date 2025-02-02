@@ -17,7 +17,7 @@ $username = htmlspecialchars($_SESSION['username']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User panel</title>
-    <javascript src="indexuser.js"></script>
+    <script src="indexuser.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="indexcss.css">
 </head>
@@ -94,10 +94,10 @@ $username = htmlspecialchars($_SESSION['username']);
         
     <a href="logout.php">Logout</a>
     </main>
-    <aside id="side-content">
+    <aside id="sidebar">
         <button id="close-btn" class="close-btn">X</button>
         <h1>Youtube Channel</h1>
-        <p>go check out my youtube channel <a href="https://www.youtube.com/@GerryCraftEZ">YoutubeChannel</a> please subscribe</p>
+        <p>go check out my youtube channel <a href="https://www.youtube.com/@GerryCraftEZ" class="link">YoutubeChannel</a> please subscribe</p>
         <h3>latest video</h3>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/K-dDdVsMn7E?si=r-t_z24OM7dHxXiG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <br>

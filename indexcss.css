@@ -3,24 +3,24 @@
     position: relative;
 }
 
-/* Default Aside Styling */
+/* Default Aside Styling - Initially Off-Screen */
 aside {
+    width: 800px;  /* Set width to 800px */
+    height: 100vh; /* Full height */
+    background: #00fefe; /* Dark background */
+    color: white; /* Text color */
     position: fixed;
-    right: -300px; /* Start off-screen */
     top: 0;
-    width: 300px; /* Adjust as needed */
-    height: 100vh;
-    background: #222;
-    color: white;
+    left: -800px; /* Start hidden off-screen */
+    transition: left 0.3s ease-in-out;
     padding: 20px;
-    transition: right 0.3s ease-in-out;
-    overflow-y: auto;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
 }
+
 
 /* Open State */
 aside.open {
-    right: 0;
+    transform: translateX(-800px); /* Move into view */
 }
 
 /* Close Button */
@@ -33,13 +33,13 @@ aside.open {
     cursor: pointer;
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
 }
 
 /* Open Aside Button */
 #open-btn {
     position: fixed;
-    right: 10px;
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
     background: #333;

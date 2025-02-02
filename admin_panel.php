@@ -60,6 +60,7 @@ if ($res = $conn->query($query_total_admins)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="indexcss.css">
 </head>
 <body>
     <nav class="navbar">
@@ -87,6 +88,7 @@ if ($res = $conn->query($query_total_admins)) {
             </ul>
         </div>
     </nav>
+    <div class="container">
     <main>
         <h1>Welcome to the Admin Panel, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
         <p>Here you can manage users and site content.</p>
@@ -151,6 +153,7 @@ if ($res = $conn->query($query_total_admins)) {
             <p>More features coming soon...</p>
         </section>
     </main>
+    </div>
     <footer class="footer">
         <p>&copy; 2025 GerryCraft. All Rights Reserved.</p>
     </footer>
