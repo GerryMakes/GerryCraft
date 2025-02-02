@@ -17,7 +17,9 @@ $username = htmlspecialchars($_SESSION['username']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User panel</title>
-    <link rel="stylesheet" href="styles.css?v=1.0">
+    <javascript src="indexuser.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="indexcss.css">
 </head>
 <body>
     <nav class="navbar">
@@ -34,11 +36,12 @@ $username = htmlspecialchars($_SESSION['username']);
                     <a href="Links.html" class="navbar-links">Links</a>
                 </li>
                 <li class="navbar-btn">
-                    <a href="logout.php" class="button">Sign Out</a>
+                    <a href="logout.php" class="button">Sign Out <?php echo htmlspecialchars($_SESSION['username']); ?></a>
                 </li>
             </ul>
         </div>
     </nav>
+    <div class="container">
     <main>
     <h1>Welcome to the User Panel, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
     <p>Here you can view your profile and access user-specific content.</p>
@@ -49,12 +52,6 @@ $username = htmlspecialchars($_SESSION['username']);
         <li><a href="profile.php">Edit Profile</a></li>
         <li><a href="settings.php">Account Settings</a></li>
     </ul>
-    <p>go check out my youtube channel <a href="https://www.youtube.com/@GerryCraftEZ">YoutubeChannel</a> please subscribe</p>
-    <h3>latest video</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/K-dDdVsMn7E?si=r-t_z24OM7dHxXiG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <br>
-    <h3>second latest video</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/wYOC0kwuhbY?si=GWJnBsmdl7j-cWn6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <br>
     <h2>Send a Webhook</h2>
     <form action="send_webhook.php" method="POST">
@@ -86,9 +83,30 @@ $username = htmlspecialchars($_SESSION['username']);
             <a href="" class="download_link">Download the gerrycraft tools app</a>
         </div>
     </div>
+    <section>
+        <div>
+            <div>
+                <h2>Minecraft links</h2>
+                <a href="">Links to my mc page</a>
+            </div>
+        </div>
+    </section>
         
     <a href="logout.php">Logout</a>
     </main>
+    <aside id="side-content">
+        <button id="close-btn" class="close-btn">X</button>
+        <h1>Youtube Channel</h1>
+        <p>go check out my youtube channel <a href="https://www.youtube.com/@GerryCraftEZ">YoutubeChannel</a> please subscribe</p>
+        <h3>latest video</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/K-dDdVsMn7E?si=r-t_z24OM7dHxXiG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <br>
+        <h3>second latest video</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wYOC0kwuhbY?si=GWJnBsmdl7j-cWn6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </aside>
+
+    <button id="open-btn" class="open-btn">Aside</button>
+    </div>
     <footer class="footer">
         <p>&copy; 2025 GerryCraft. All Rights Reserved.</p>
     </footer>
