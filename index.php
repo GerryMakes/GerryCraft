@@ -16,10 +16,18 @@ $username = htmlspecialchars($_SESSION['username']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User panel</title>
+    <title>Home Page</title>
     <script src="indexuser.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="indexcss.css">
+    <style>
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -83,18 +91,26 @@ $username = htmlspecialchars($_SESSION['username']);
             <a href="" class="download_link">Download the gerrycraft tools app</a>
         </div>
     </div>
+    <div>
+        <h1>Calculator</h1>
+        <input type="number" id="num1" name="number" placeholder="Enter a number">
+        <input type="number" id="num2" name="number" placeholder="Enter another number">
+        <button onclick="math(document.getElementById('num1').value, document.getElementById('num2').value)">Calculate</button>
+        <h3 id="Sum">answer</h3>
+    </div>
     <section>
         <div>
             <div>
                 <h2>Minecraft links</h2>
-                <a href="">Links to my mc page</a>
+                <a href="https://skinmc.net/profile/MC_Demi_God.1">Links to my mc page (skinsMC)</a>
+                <a href="Minecraft.php">Links to my minecraft page (this website)</a>
             </div>
         </div>
     </section>
         
     <a href="logout.php">Logout</a>
     </main>
-    <aside id="sidebar">
+    <aside id="aside">
         <button id="close-btn" class="close-btn">X</button>
         <h1>Youtube Channel</h1>
         <p>go check out my youtube channel <a href="https://www.youtube.com/@GerryCraftEZ" class="link">YoutubeChannel</a> please subscribe</p>

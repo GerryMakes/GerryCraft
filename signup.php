@@ -1,31 +1,28 @@
 <?php
-require "db.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+session_start();
+require_once "db.php"; // Make sure this file exists
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = trim($_POST["username"] ?? "");
-    $email = trim($_POST["email"] ?? "");
-    $password = trim($_POST["password"] ?? "");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = password_hash(trim($_POST['password']), PASSWORD_BCRYPT);
 
-    if (empty($username) || empty($email) || empty($password)) {
-        die("All fields are required.");
-    }
-
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')";
-    if ($stmt = $link->prepare($sql)) {
-        $stmt->bind_param("sss", $username, $email, $hashed_password);
+    if (!empty($username) && !empty($email) && !empty($password)) {
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email, $password);
 
         if ($stmt->execute()) {
-            header("Location: signin.php");
-            exit;
+            header("Location: index.php"); // Redirect after successful signup
+            exit();
         } else {
-            die("Something went wrong. Please try again later.");
+            echo "Signup failed. Error: " . $conn->error;
         }
+
+        $stmt->close();
     } else {
-        die("Something went wrong. Please try again later.");
+        echo "All fields are required.";
     }
-    $stmt->close();
 }
-$link->close();
 ?>
