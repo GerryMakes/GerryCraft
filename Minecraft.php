@@ -44,7 +44,13 @@ $username = htmlspecialchars($_SESSION['username']);
             <h1>Welcome to the Minecraft Panel, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
             <div class="minecraft">
                 <h3>skins mc minecraft page</h3>
-                <iframe src="https://skinmc.net/profile/MC_Demi_God.1" frameborder="0" width="500px" height="500px"></iframe>
+                <a href="https://skinmc.net/profile/MC_Demi_God.1" target="_blank">skins mc</a>
+                <h4>pls folow me</h4>
+                <div class="info">
+                    <h3>Username: MC_Demi_God</h3>
+                    <h3>Discord: GerryCraft</h3>
+                    <p>i like to play survival, bedwars, and more</p>
+                </div>
             </div>
         </main>
     </div>
