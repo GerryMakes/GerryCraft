@@ -15,7 +15,7 @@
 }
 
 .Links_Body {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYHypBkiuxU5MiS_FamW14BiNhs6nhGdtHJmhJAXTAQ&s);
+    background-image: url('images/background.png');
     background-size: cover;
     font-family: Poetsen;
     color: #fff;
@@ -23,7 +23,7 @@
 }
 
 .Gaming_Body {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT5jI7Zs4aYl59kSZB09-gaBeYK5UXHGvCkw&s);
+    background-image: url('images/background.png');
     background-size: cover;
     font-family: Poetsen;
     color: #fff;
@@ -31,7 +31,7 @@
 }
 
 .Getstarted_Body {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT5jI7Zs4aYl59kSZB09-gaBeYK5UXHGvCkw&s);
+    background-image: url('images/background.png');
     background-size: cover;    
     font-family: Poetsen;
     color: #fff;
@@ -39,7 +39,7 @@
 }
 
 .Buy_Body {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT5jI7Zs4aYl59kSZB09-gaBeYK5UXHGvCkw&s);
+    background-image: url('images/background.png');
     background-size: cover;    
     font-family: Poetsen;
     color: #fff;
@@ -47,7 +47,7 @@
 }
 
 .index_Body {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYHypBkiuxU5MiS_FamW14BiNhs6nhGdtHJmhJAXTAQ&s);
+    background-image: url('images/background.png');
     background-size: cover;    
     font-family: Poetsen;
     color: #fff;
@@ -55,7 +55,7 @@
 }
 
 .link {
-    color: #e8dc3e;
+    color: #3ee8e2;
     font-family: sans-serif;
     text-decoration: none;
 }
@@ -538,32 +538,8 @@ scroll-btn:before {
     margin: 5px 0;
 }
 
-aside {
-    background-color: #22cfe6;
-    display: inline-block;
-    border: #000000;
-    border-radius: 30px;
-    justify-content: center;
-    margin: 0px auto;
-    text-align: center;
-
-}
-aside h2 {
-    color: #000000;
-    border: #3ef700;
-    padding: 10 10 10 10px;
-}
-aside h3 {
-    color: #000000;
-    border: #d4ff00;
-}
-aside p {
-    color: #000000;
-    border: #1e3c72;
-    border-radius: 10px;
-}
 .hero {
-    background-image: url('videogame.png');
+    background-image: url('images/videogame.png');
     background-attachment: fixed;
     background-size: cover;
     height: 100vh;
@@ -571,7 +547,7 @@ aside p {
     justify-content: center;
     align-items: center;
     color: #fff;
-  }
+}
   
 .hero h1 {
     font-size: 48px;
@@ -582,4 +558,105 @@ aside p {
     float: right;
     width: 30%; 
     margin: 20px; 
+}
+/*links.html*/
+.Links_Body {
+    background-color: #0f0f23;
+    color: #e3f2fd;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.links-container {
+    background-color: #1a1a2e;
+    border: 5px solid #0f3460;
+    border-radius: 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.links-container h1 {
+    color: #e3f2fd;
+    margin-bottom: 20px;
+}
+
+.links-container p {
+    color: #b8c6db;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.links-container hr {
+    border: none;
+    border-top: 2px solid #0f3460;
+    margin: 30px 0;
+}
+
+.rid-o-bullet-link {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rid-o-bullet-link li {
+    margin: 20px 0;
+}
+
+.rid-o-bullet-link .link {
+    display: inline-block;
+    background-color: #0f3460;
+    color: #e3f2fd;
+    padding: 15px 40px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #0f3460;
+}
+
+.rid-o-bullet-link .link:hover {
+    background-color: #1976d2;
+    border-color: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
+}
+
+.discord-btn {
+    background-color: #5865F2;
+    border-color: #5865F2;
+}
+
+.discord-btn:hover {
+    background-color: #4752C4;
+    border-color: #4752C4;
+}
+
+/* Aside */
+aside {
+    background-color: #e3f2fd;
+    display: inline-block;
+    border: 5px solid #22cfe6;
+    border-radius: 30px;
+    justify-content: center;
+    margin: 5px auto;
+    text-align: center;
+}
+aside h2 {
+    color: #000000;
+    padding: 20px 20px 20px 20px;
+}
+aside h3 {
+    color: #000000;
+}
+aside p {
+    color: #000000;
+    border-radius: 10px;
+}
+.bottom-p-aside {
+    color: #000000;
+    padding-bottom: 5px;
 }
